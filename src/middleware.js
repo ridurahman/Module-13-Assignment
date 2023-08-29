@@ -14,5 +14,7 @@ export function middleware(req, res) {
 
     // response.headers.set("AuthorizationWithBearer", `Authorization`);
     // return response;
+  } else if (req.nextUrl.pathname.startsWith("/api/redirect")) {
+    return NextResponse.redirect(new URL("/", req.url));
   }
 }
